@@ -290,7 +290,7 @@ app.post("/tracking/:habitId", authenticateToken, (req, res) => {
 
   db.run(
     "INSERT INTO habit_tracking (habit_id, user_id, completed, date) VALUES (?, ?, ?, ?)",
-    [habitId, req.user.id, completed ? 1 : 0, date],
+    [habitId, req.user.id, completed, date],
     function (err) {
       if (err)
         return res
